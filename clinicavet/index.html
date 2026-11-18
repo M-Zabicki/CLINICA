@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102c33"><meta name="description" content="Gestão veterinária VetCare">
+  <title>VetCare | Gestão veterinária</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={darkMode:'class',theme:{extend:{colors:{brand:'#1e3a8a',accent:'#0284c7'}}}}</script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="config.js"></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <main id="access" class="access-shell">
+    <section class="login-card" aria-labelledby="login-title">
+      <div class="brand-mark"><span data-lucide="paw-print" aria-hidden="true"></span></div>
+      <p class="eyebrow">GESTÃO VETERINÁRIA</p><h1 id="login-title">Bem-vindo à VetCare</h1>
+      <p class="muted">Entre para acompanhar a rotina da clínica.</p>
+      <form id="auth-form" class="form-stack">
+        <label>E-mail<input id="auth-email" type="email" autocomplete="email" required></label>
+        <label>Senha<input id="auth-password" type="password" autocomplete="current-password" minlength="6" required></label>
+        <button class="button primary full" type="submit" id="auth-submit">Entrar</button>
+      </form>
+      <div class="auth-links"><button id="signup-link" class="text-button">Criar conta</button><button id="reset-link" class="text-button">Esqueci minha senha</button></div>
+      <p id="auth-message" class="form-message" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <div id="application" class="app-shell hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard"><span class="brand-mark small"><span data-lucide="paw-print" aria-hidden="true"></span></span><span><b>VetCare</b><small>Gestão veterinária</small></span></a>
+      <nav aria-label="Navegação principal" class="main-nav">
+        <button data-view="dashboard" class="nav-item active"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Dashboard</button>
+        <button data-view="tutores" class="nav-item"><i data-lucide="users" aria-hidden="true"></i>Tutores</button>
+        <button data-view="animais" class="nav-item"><i data-lucide="heart" aria-hidden="true"></i>Animais</button>
+        <button data-view="consultas" class="nav-item"><i data-lucide="calendar-days" aria-hidden="true"></i>Consultas</button>
+      </nav>
+      <div class="sidebar-bottom"><button id="theme-toggle" class="nav-item"><i data-lucide="moon" aria-hidden="true"></i><span>Tema</span></button><button id="logout" class="nav-item"><i data-lucide="log-out" aria-hidden="true"></i>Sair da conta</button></div>
+    </aside>
+    <main class="content-area">
+      <header class="topbar"><button id="mobile-menu" class="icon-button" aria-label="Abrir navegação"><i data-lucide="menu" aria-hidden="true"></i></button><div><p class="eyebrow">CLÍNICA VETERINÁRIA</p><h1 id="page-title">Dashboard</h1></div><div class="user-chip"><span class="avatar"><i data-lucide="user-round" aria-hidden="true"></i></span><span id="user-email"></span></div></header>
+      <div id="view-root" aria-live="polite"></div>
+    </main>
+  </div>
+  <dialog id="record-dialog" class="record-dialog"><form id="record-form" method="dialog"><header class="dialog-head"><div><p class="eyebrow">CADASTRO</p><h2 id="dialog-title">Novo registro</h2></div><button type="button" class="icon-button" id="dialog-close" aria-label="Fechar"><i data-lucide="x" aria-hidden="true"></i></button></header><div id="form-fields" class="field-grid"></div><footer class="dialog-actions"><button type="button" class="button secondary" id="dialog-cancel">Cancelar</button><button type="submit" class="button primary">Salvar registro</button></footer></form></dialog>
+</body>
+</html>
